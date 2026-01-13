@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 1.4rem;
+  color: #222;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* HEADER */
+header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+}
+
+nav ul li {
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+nav ul li:hover {
+  border-bottom: 2px solid #000;
+}
+
+/* MAIN */
+main {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* HERO */
+#hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 4rem 0;
+}
+
+.hero_content h1 {
+  font-size: 5rem;
+}
+
+.hero_content h4 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-top: 1rem;
+}
+
+.hero_image img {
+  border-radius: 3rem;
+}
+
+/* CARDS */
+.h-card,
+.v-card {
+  border: 1px solid #e2e2e2;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.h-card {
+  display: flex;
+  margin: 3rem 0;
+}
+
+.card_content {
+  padding: 2rem;
+}
+
+.status {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.read-btn {
+  all: unset;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+}
+
+.read-btn:hover {
+  border-bottom: 1px solid #000;
+}
+
+/* GRID */
+.card_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+/* POST PAGE */
+.post h1 {
+  font-size: 3.2rem;
+}
+
+.about-author {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* FOOTER */
+.site-footer {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding-top: 2rem;
+  border-top: 1px solid #e2e2e2;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-social {
+  display: flex;
+  gap: 2rem;
+  font-size: 2.2rem;
+  cursor: pointer;
+}

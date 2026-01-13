@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Password Generator | Shiv Kumar</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: #ffffff;
+      width: 340px;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin-bottom: 6px;
+      color: #222;
+    }
+
+    .brand {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 18px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .options {
+      text-align: left;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .options label {
+      display: block;
+      margin-bottom: 6px;
+      cursor: pointer;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #667eea;
+      border: none;
+      color: #fff;
+      font-size: 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #5a67d8;
+    }
+
+    .output {
+      margin-top: 15px;
+      display: flex;
+      gap: 6px;
+    }
+
+    .output input {
+      flex: 1;
+      padding: 8px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .copy-btn {
+      padding: 8px 12px;
+      background: #22c55e;
+      border: none;
+      color: #fff;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .copy-btn:hover {
+      background: #16a34a;
+    }
+
+    .footer-credit {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #555;
+    }
+
+    .footer-credit strong {
+      color: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Random Password Generator</h1>
+    <p class="brand">Built by <strong>Shiv Kumar</strong></p>
+
+    <input
+      type="number"
+      id="length"
+      placeholder="Password Length"
+      value="12"
+      min="4"
+    />
+
+    <div class="options">
+      <label><input type="checkbox" id="upper" checked /> Include Uppercase</label>
+      <label><input type="checkbox" id="lower" checked /> Include Lowercase</label>
+      <label><input type="checkbox" id="number" checked /> Include Numbers</label>
+      <label><input type="checkbox" id="symbol" checked /> Include Symbols</label>
+    </div>
+
+    <button onclick="generatePassword()">Generate Password</button>
+
+    <div class="output">
+      <input type="text" id="result" readonly />
+      <button class="copy-btn" onclick="copyPassword()">Copy</button>
+    </div>
+
+    <p class="footer-credit">
+      © 2026 · Designed & Developed by <strong>Shiv Kumar</strong>
+    </p>
+  </div>
+
+  <script>
+    function generatePassword() {
+      const length = document.getElementById("length").value;
+
+      const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      const lower = "abcdefghijklmnopqrstuvwxyz";
+      const number = "0123456789";
+      const symbol = "!@#$%^&*()_+";
+
+      let chars = "";
+      let password = "";
+
+      if (document.getElementById("upper").checked) chars += upper;
+      if (document.getElementById("lower").checked) chars += lower;
+      if (document.getElementById("number").checked) chars += number;
+      if (document.getElementById("symbol").checked) chars += symbol;
+
+      if (chars === "") {
+        alert("Please select at least one option!");
+        return;
+      }
+
+      for (let i = 0; i < length; i++) {
+        password += chars[Math.floor(Math.random() * chars.length)];
+      }
+
+      document.getElementById("result").value = password;
+    }
+
+    function copyPassword() {
+      const result = document.getElementById("result");
+      result.select();
+      document.execCommand("copy");
+      alert("Password copied to clipboard!");
+    }
+  </script>
+</body>
+</html>
